@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Machine-learning based fake news classifier" />
+  <title>TruthLens — Fake News Detector</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="badge">AI / NLP</div>
+      <h1>TruthLens</h1>
+      <p>Paste a news article and classify it using a TF-IDF + LinearSVC machine-learning pipeline.</p>
+    </header>
+
+    <section class="card">
+      <form id="detectorForm">
+        <label for="title">Headline <span>(optional)</span></label>
+        <input id="title" maxlength="5000" placeholder="Enter the news headline" />
+
+        <label for="text">Article text</label>
+        <textarea id="text" minlength="10" maxlength="100000" rows="14" required placeholder="Paste the news article here..."></textarea>
+
+        <button id="predictBtn" type="submit">Analyze article</button>
+      </form>
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <section id="result" class="result card hidden">
+      <div class="result-top">
+        <div>
+          <p class="eyebrow">MODEL RESULT</p>
+          <h2 id="label">—</h2>
+        </div>
+        <div id="score" class="score">—</div>
+      </div>
+      <p id="message"></p>
+      <button id="resetBtn" class="secondary" type="button">Analyze another article</button>
+    </section>
+
+    <footer>
+      <span>Educational / project use</span>
+      <a href="/docs" target="_blank" rel="noreferrer">API Docs</a>
+    </footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
